@@ -43,12 +43,7 @@ public class TriangleMeshScene extends Scene3D {
         cameraController.adjustViewTo(mesh.getBoundingBox());
     }
 
-
     protected Vector3f calcNormal(wpcg.base.mesh.TriangleMesh m, Triangle t) {
-        Vertex v1 = m.getVertex(t.getVertexIndex(0));
-        Vertex v2 = m.getVertex(t.getVertexIndex(1));
-        Vertex v3 = m.getVertex(t.getVertexIndex(2));
-
         Vector3f vv1 = m.getVertex(t.getVertexIndex(0)).getPosition();
         Vector3f vv2 = m.getVertex(t.getVertexIndex(1)).getPosition();
         Vector3f vv3 = m.getVertex(t.getVertexIndex(2)).getPosition();
@@ -56,9 +51,14 @@ public class TriangleMeshScene extends Scene3D {
         Vector3f a = vv1.subtract(vv2);
         Vector3f b = vv3.subtract(vv1);
 
-        return a.cross(b);
+        Vector3f n = a.cross(b);
+        if (n.getX() == -0F) {n.setX(0F);}
+        if (n.getY() == -0F) {n.setY(0F);}
+        if (n.getZ() == -0F) {n.setZ(0F);}
 
+        return n;
     }
+
     protected TriangleMesh makeSimpleMesh() {
         wpcg.base.mesh.TriangleMesh mesh = new wpcg.base.mesh.TriangleMesh();
 
