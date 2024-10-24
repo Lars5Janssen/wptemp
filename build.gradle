@@ -1,0 +1,39 @@
+plugins {
+    id 'java'
+    id 'application'
+}
+
+repositories {
+    mavenCentral()
+}
+
+// newest: 3.7.0-beta1.2.2
+// stable: 3.6.1-stable
+def jme3 = [v: '3.7.0-beta1.2.2', g: 'org.jmonkeyengine']
+
+dependencies {
+    // jMonkey
+    implementation "${jme3.g}:jme3-core:${jme3.v}"
+    implementation "${jme3.g}:jme3-effects:${jme3.v}"
+    implementation "${jme3.g}:jme3-plugins:${jme3.v}"
+    implementation "${jme3.g}:jme3-desktop:${jme3.v}"
+    implementation "${jme3.g}:jme3-lwjgl3:${jme3.v}"
+    implementation "${jme3.g}:jme3-jogg:${jme3.v}"
+
+    // Utils
+    implementation 'org.apache.commons:commons-lang3:3.12.0'
+    implementation 'org.json:json:20231013'
+    implementation 'org.jetbrains:annotations:23.0.0'
+    implementation 'com.google.guava:guava:33.0.0-jre'
+    implementation 'gov.nist.math:jama:1.0.3'
+
+    // Unit-Testing
+    testImplementation('org.junit.jupiter:junit-jupiter:5.9.0')
+}
+
+test {
+    useJUnitPlatform()
+    testLogging {
+        events "passed", "skipped", "failed"
+    }
+}
