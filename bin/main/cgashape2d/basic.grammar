@@ -1,0 +1,13 @@
+Origin --> extrude(0.7){BaseLine}
+BaseLine --> split(x,1.6r,3r,1.6r){TowerBaseLine,MiddleBaseLine,TowerBaseLine}
+TowerBaseLine --> extrude(0.5){TowerBody}
+MiddleBaseLine --> extrude(0.3){BaseBody}
+TowerBody --> split(y,1r,1r,1r){Unused,TowerMiddleBody,TowerTopBody}
+TowerMiddleBody --> split(x,1r,0.1,1r){Unused,WindowSlice,Unused}
+WindowSlice --> split(y,1r,0.1,1r){Unused,WindowPlaceholder,Unused}
+BaseBody --> split(y,1r,1r){BaseBottomBody,Unused}
+BaseBottomBody --> split(x,1r,0.15,1r){Unused,DoorPlaceholder,Unused}
+TowerTopBody --> component_split(){Unused,Unused,RoofBaseLine,Unused} identity(){TowerTopBodyKeep}
+RoofBaseLine --> special(roof){Roof}
+WindowPlaceholder --> special(window){Window}
+DoorPlaceholder --> special(door){Door}
