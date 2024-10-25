@@ -56,7 +56,7 @@ public class TriangleMeshScene extends Scene3D {
         if (n.getY() == -0F) {n.setY(0F);}
         if (n.getZ() == -0F) {n.setZ(0F);}
 
-        return n;
+        return n.normalize().mult(-1F);
     }
 
     protected TriangleMesh makeSimpleMesh() {
