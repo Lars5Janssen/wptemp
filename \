@@ -1,0 +1,26 @@
+normal
+# Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit.
+#
+# On branch main
+# Your branch is up to date with 'origin/main'.
+#
+# Changes to be committed:
+#	modified:   src/main/java/wpcg/lab/a1/TriangleMeshScene.java
+#
+# ------------------------ >8 ------------------------
+# Do not modify or remove the line above.
+# Everything below it will be ignored.
+diff --git a/src/main/java/wpcg/lab/a1/TriangleMeshScene.java b/src/main/java/wpcg/lab/a1/TriangleMeshScene.java
+index 1cada98..2c19c64 100755
+--- a/src/main/java/wpcg/lab/a1/TriangleMeshScene.java
++++ b/src/main/java/wpcg/lab/a1/TriangleMeshScene.java
+@@ -56,7 +56,7 @@ public class TriangleMeshScene extends Scene3D {
+         if (n.getY() == -0F) {n.setY(0F);}
+         if (n.getZ() == -0F) {n.setZ(0F);}
+ 
+-        return n;
++        return n.normalize().mult(-1F);
+     }
+ 
+     protected TriangleMesh makeSimpleMesh() {

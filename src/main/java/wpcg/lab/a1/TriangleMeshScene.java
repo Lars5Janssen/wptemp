@@ -81,7 +81,6 @@ public class TriangleMeshScene extends Scene3D {
 
         triangles.add(new Triangle(1, 5, 6));
         triangles.add(new Triangle(2, 1, 6));
-
         triangles.add(new Triangle(1, 4, 5));
         triangles.add(new Triangle(1, 0, 4));
 
